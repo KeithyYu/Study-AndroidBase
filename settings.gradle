@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "StudyProject"
+include ':app'
+include ':01lifecyclers'
+include ':02room'
+include ':03demowords'
+include ':04bottomnavigation'
+include ':05pagingdemo'
