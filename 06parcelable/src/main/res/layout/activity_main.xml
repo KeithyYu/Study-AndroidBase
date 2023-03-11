@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/edName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="名字"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="年龄"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@id/edName"
+        app:layout_constraintStart_toStartOf="@id/edName"
+        app:layout_constraintTop_toBottomOf="@id/edName" />
+
+    <EditText
+        android:id="@+id/edMath"
+        android:hint="数学"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/edAge"
+        app:layout_constraintEnd_toEndOf="@id/edAge"
+        app:layout_constraintTop_toBottomOf="@id/edAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/edEnglish"
+        android:hint="英语"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/edMath"
+        app:layout_constraintEnd_toEndOf="@id/edMath"
+        app:layout_constraintTop_toBottomOf="@id/edMath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_marginTop="20dp"
+        android:text="传递"
+        app:layout_constraintStart_toStartOf="@id/edEnglish"
+        app:layout_constraintEnd_toEndOf="@id/edEnglish"
+        app:layout_constraintTop_toBottomOf="@id/edEnglish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

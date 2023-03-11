@@ -35,15 +35,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Log.d(TAG, "WDY onCreate enter")
+
         mViewModel = ViewModelProvider(this)[StudentViewModel::class.java]
         mStudentDao = StudentDatabase.getStudentDataBase(this@MainActivity).getStudentDao()
 
-        for (index in 0 until 10000) {
-            val student = Student("学生 $index")
-            GlobalScope.launch(Dispatchers.IO) {
-                mViewModel.insertStudent(mStudentDao ,student)
-            }
-        }
+//        for (index in 0 until 10000) {
+//            val student = Student("Student")
+//            GlobalScope.launch(Dispatchers.IO) {
+//                mViewModel.insertStudent(mStudentDao ,student)
+//            }
+//        }
+//        Log.d(TAG, "WDY onCreate load data end")
 
         mRv = findViewById(R.id.rv)
         mRv.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
@@ -51,10 +54,11 @@ class MainActivity : AppCompatActivity() {
         mRv.adapter = mAdapter
 
         lifecycleScope.launch {
-            mViewModel.getPagingData(mStudentDao).collect {
-                Log.d(TAG, "getPagingData run")
-                mAdapter.submitData(it)
+            mViewModel.getPagingData(mStudentDao).collect { students ->
+                Log.d(TAG, "WDY getPagingData collect")
+                mAdapter.submitData(students)
             }
         }
+        Log.d(TAG, "WDY onCreate end")
     }
 }

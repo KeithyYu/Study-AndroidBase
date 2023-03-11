@@ -32,7 +32,8 @@ class MyAdapter : PagingDataAdapter<Student, MyAdapter.ViewHolder>(COMPARATOR) {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.mName.text = getItem(position)?.name
+        val item = getItem(position)
+        holder.mName.text = item?.name + item?.id
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
