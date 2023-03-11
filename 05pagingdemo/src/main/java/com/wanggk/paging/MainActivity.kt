@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         mViewModel = ViewModelProvider(this)[StudentViewModel::class.java]
         mStudentDao = StudentDatabase.getStudentDataBase(this@MainActivity).getStudentDao()
 
-//        for (index in 0 until 10000) {
+//        for (index in 0 until 1000) {
 //            val student = Student("Student")
 //            GlobalScope.launch(Dispatchers.IO) {
 //                mViewModel.insertStudent(mStudentDao ,student)
