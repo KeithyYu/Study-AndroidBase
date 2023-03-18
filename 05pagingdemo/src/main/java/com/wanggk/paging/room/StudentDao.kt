@@ -18,6 +18,6 @@ interface StudentDao {
     @Query("SELECT * FROM student ORDER BY id")
     fun getStudentLive() : DataSource.Factory<Int, Student>
 
-    @Query("SELECT * FROM student ORDER BY id")
+    @Query("SELECT * FROM student ORDER BY time desc")
     fun getStudent() : PagingSource<Int, Student>
 }

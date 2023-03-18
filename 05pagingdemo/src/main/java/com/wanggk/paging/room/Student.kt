@@ -17,4 +17,7 @@ data class Student(var name: String) {
 
     @ColumnInfo(name = "grade")
     var mGrade: String? = ""
+
+    @ColumnInfo(name = "time")
+    var mTime: Long = 0L
 }

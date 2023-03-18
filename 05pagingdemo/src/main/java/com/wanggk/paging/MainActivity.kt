@@ -2,6 +2,7 @@ package com.wanggk.paging
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.SystemClock
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +16,7 @@ import com.wanggk.paging.rv.MyAdapter
 import com.wanggk.paging.viewmodel.StudentViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -40,13 +42,15 @@ class MainActivity : AppCompatActivity() {
         mViewModel = ViewModelProvider(this)[StudentViewModel::class.java]
         mStudentDao = StudentDatabase.getStudentDataBase(this@MainActivity).getStudentDao()
 
-//        for (index in 0 until 1000) {
-//            val student = Student("Student")
-//            GlobalScope.launch(Dispatchers.IO) {
-//                mViewModel.insertStudent(mStudentDao ,student)
-//            }
-//        }
-//        Log.d(TAG, "WDY onCreate load data end")
+        GlobalScope.launch(Dispatchers.IO) {
+            for (index in 0 until 10) {
+                val student = Student("Student")
+                delay(100)
+                student.mTime = System.currentTimeMillis()
+                mViewModel.insertStudent(mStudentDao, student)
+            }
+        }
+        Log.d(TAG, "WDY onCreate load data end")
 
         mRv = findViewById(R.id.rv)
         mRv.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
