@@ -30,7 +30,7 @@ abstract class StudentDatabase : RoomDatabase() {
         val MIGRATION_1_2 : Migration = object : Migration(2, 3) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL(
-                    "ALTER TABLE student ADD COLUMN time TEXT"
+                    "ALTER TABLE student ADD COLUMN time Long"
                 )
             }
         }

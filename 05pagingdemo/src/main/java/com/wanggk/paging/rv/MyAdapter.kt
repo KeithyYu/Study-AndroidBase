@@ -5,12 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.AdapterListUpdateCallback
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.wanggk.paging.R
 import com.wanggk.paging.room.Student
 
-class MyAdapter : PagingDataAdapter<Student, MyAdapter.ViewHolder>(COMPARATOR) {
+class MyAdapter() : PagingDataAdapter<Student, MyAdapter.ViewHolder>(COMPARATOR) {
     companion object {
         //因为Paging 3在内部会使用DiffUtil来管理数据变化，所以这个COMPARATOR是必须的
         private val COMPARATOR = object : DiffUtil.ItemCallback<Student>() {

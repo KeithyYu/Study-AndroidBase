@@ -15,7 +15,15 @@ class StudentViewModel : ViewModel() {
         PagingRepository.insertStudent(userDao, student)
     }
 
+    fun updateStudent(userDao: StudentDao, student: Student) {
+        PagingRepository.updateStudent(userDao, student)
+    }
+
     fun getPagingData(userDao: StudentDao): Flow<PagingData<Student>> {
         return PagingRepository.getPagingData(userDao).cachedIn(viewModelScope)
+    }
+
+    fun getPagingData2(userDao: StudentDao): Flow<PagingData<Student>> {
+        return PagingRepository.getPagingData2(userDao).cachedIn(viewModelScope)
     }
 }
